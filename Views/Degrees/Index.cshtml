@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Bitcube.Models.Degree>
+
+@{
+    ViewData["Title"] = "Degree";
+}
+
+<h2>Degree</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DegreeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Duration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LectureId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lecture)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DegreeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Duration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LectureId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lecture)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.DegreeId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.DegreeId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.DegreeId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
